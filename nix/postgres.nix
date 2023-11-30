@@ -352,7 +352,7 @@ in
 
                   if [[ ! -d "$PGDATA" ]]; then
                     set -x
-                    mkdir -p ${config.dataDir}
+                    mkdir -p ${config.dataDir} && chmod -R 750 ${config.dataDir}
                     initdb ${lib.concatStringsSep " " initdbArgs}
                     set +x
 
